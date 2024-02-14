@@ -12,6 +12,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -28,7 +30,8 @@ public class BoxRequest {
   @Column(nullable = false, unique = true, length = 20)
   private String txref;
   @Column(nullable = false)
-  @Size(max = 500)
+  @Min(value = 0, message = "Weight limit must be greater than or equal to 0")
+  @Max(value = 500, message = "Weight limit must be less than or equal to 500")
   private int weightLimit;
   @Column(nullable = false)
   private int currentWeight;

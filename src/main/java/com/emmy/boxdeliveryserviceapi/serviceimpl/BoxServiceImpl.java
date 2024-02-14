@@ -44,6 +44,8 @@ public class BoxServiceImpl implements BoxService {
     box.setCurrentWeight(boxRequest.getCurrentWeight());
     box.setBatteryCapacity(boxRequest.getBatteryCapacity());
     box.setState(boxRequest.getState());
+    box.setItems(boxRequest.getItems());
+
   }
 
   private void validateInputData(BoxRequest boxRequest) {
